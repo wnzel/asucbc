@@ -16,7 +16,7 @@ export const teamMembers: TeamMember[] = [
     image: "/staff/punya.png",
     websiteUrl: "https://punyamishra.com/",
     description:
-      "Punya Mishra is Director of Innovative Learning Futures at Arizona State University's Learning Engineering Institute and Professor in the Mary Lou Fulton College. Internationally recognized for his work in educational technology, creativity, and design-based learning innovation, he has published over 200 articles and received the AECT Jonassen Award. An AERA Fellow, he co-hosts the award-winning Silver Lining for Learning webinar and Learning Futures podcast.",
+      "Punya Mishra is Director of Innovative Learning Futures at Arizona State University’s Learning Engineering Institute and Professor in the Mary Lou Fulton College. Internationally recognized for his work in educational technology, creativity, and design-based learning innovation, he has published over 200 articles and received the AECT Jonassen Award. An AERA Fellow, he co-hosts the award-winning Silver Lining for Learning webinar and Learning Futures podcast.",
   },
   {
     id: "shiven",
@@ -27,19 +27,6 @@ export const teamMembers: TeamMember[] = [
     websiteUrl: "https://shivenshekar.com",
     description:
       "Incoming Apple Software Engineer and senior studying Computer Science with a Software Engineering concentration at Arizona State University. My interests lie in AppliedML and Distributed Systems.",
-  },
-
-  {
-    id: "anjali",
-    name: "Anjali Kok",
-    position: "Vice President",
-    image: "/staff/claude.svg",
-  },
-  {
-    id: "hieu",
-    name: "Hieu Than",
-    position: "Technology",
-    image: "/staff/claude.svg",
   },
   {
     id: "john",
@@ -52,25 +39,24 @@ export const teamMembers: TeamMember[] = [
     websiteUrl: "https://tet.moe/",
   },
   {
-    id: "ben",
-    name: "Ben Juntilla",
+    id: "sathwin",
+    name: "Sathwin Reddy",
     position: "Head of Operations",
     image: "/staff/claude.svg",
   },
   {
-    id: "sathwin",
-    name: "Sathwin Reddy",
-    position: "Operations + Finance",
+    id: "anjali",
+    name: "Anjali Kok",
+    position: "Vice President",
     image: "/staff/claude.svg",
   },
   {
-    id: "anirudh",
-    name: "Anirudh Manjesh",
-    position: "Operations",
-    image: "/staff/anirudh.png",
-    linkedinUrl: "https://www.linkedin.com/in/anirudh-manjesh-978ba5194/",
-    description:
-      "Computer Science senior at ASU’s Barrett Honors College, experienced in full-stack development, AI/ML, and accessibility technology research. Passionate about building agentic AI systems, collaborating on open source projects, and optimizing technology for real-world impact. Active in hackathons and technical conferences, with a proven track record in deploying machine learning solutions and leading research initiatives. Always exploring new ways to advance software, mentor peers, and make technology more inclusive.",
+    id: "yuvam",
+    name: "Yuvam Bhargav",
+    position: "Technology",
+    image: "/staff/yuvam.png",
+    linkedinUrl: "https://www.linkedin.com/in/yuvam-bh/",
+    websiteUrl: "https://yuvambhargav.com/",
   },
   {
     id: "erick",
@@ -83,7 +69,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: "farnaz",
     name: "Farnaz",
-    position: "Claude Builder Ambassador",
+    position: "Ambassador",
     image: "/staff/farnaz.png",
     linkedinUrl: "https://www.linkedin.com/in/farnaz-avarzamani-a672069b/",
     description:
@@ -92,33 +78,34 @@ export const teamMembers: TeamMember[] = [
   {
     id: "tino",
     name: "Tino Heather",
-    position: "Claude Ambassador",
+    position: "Ambassador",
     image: "/staff/tino.png",
     linkedinUrl: "https://www.linkedin.com/in/heathermavunga/",
     description:
-      "Tino brings a global perspective to technology and policy, having studied across four continents. She holds a BA in Psychology and Management from Monash University and is pursuing a Master in Global Management at ASU's Thunderbird School, where she serves as a Claude AI Ambassador. She specializes in technology, people, and policy, focusing on AI, cybersecurity, and emerging technologies.",
+      "Tino brings a global perspective to technology and policy, having studied across four continents. She holds a BA in Psychology and Management from Monash University and is pursuing a Master in Global Management at ASU’s Thunderbird School, where she serves as a Claude AI Ambassador. She specializes in technology, people, and policy, focusing on AI, cybersecurity, and emerging technologies.",
   },
-].sort(
-  // Keep order, but prioritize people with non-empty descriptions and photos. Priority is given in the following order:
-  // 1. Has description and non-default photo
-  // 2. Has description
-  // 3. Has non-default photo
-  // 4. Neither
-  (a, b) => {
-    const aHasDesc = a.description && a.description.trim().length > 0;
-    const bHasDesc = b.description && b.description.trim().length > 0;
-    const aHasPhoto = !a.image.includes("claude.svg");
-    const bHasPhoto = !b.image.includes("claude.svg");
-
-    if (aHasDesc && aHasPhoto && !(bHasDesc && bHasPhoto)) return -1;
-    if (bHasDesc && bHasPhoto && !(aHasDesc && aHasPhoto)) return 1;
-    if (aHasDesc && !(bHasDesc && bHasPhoto)) return -1;
-    if (bHasDesc && !(aHasDesc && aHasPhoto)) return 1;
-    if (aHasPhoto && !bHasPhoto) return -1;
-    if (bHasPhoto && !aHasPhoto) return 1;
-    return 0;
-  }
-);
+  {
+    id: "hieu",
+    name: "Hieu Than",
+    position: "Community",
+    image: "/staff/claude.svg",
+  },
+  {
+    id: "ben",
+    name: "Ben Juntilla",
+    position: "Operations",
+    image: "/staff/claude.svg",
+  },
+  {
+    id: "anirudh",
+    name: "Anirudh Manjesh",
+    position: "Industry",
+    image: "/staff/anirudh.png",
+    linkedinUrl: "https://www.linkedin.com/in/anirudh-manjesh-978ba5194/",
+    description:
+      "Computer Science senior at ASU’s Barrett Honors College, experienced in full-stack development, AI/ML, and accessibility technology research. Passionate about building agentic AI systems, collaborating on open source projects, and optimizing technology for real-world impact. Active in hackathons and technical conferences, with a proven track record in deploying machine learning solutions and leading research initiatives. Always exploring new ways to advance software, mentor peers, and make technology more inclusive.",
+  },
+];
 
 export const formerMembers: TeamMember[] = [
   {
