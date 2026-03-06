@@ -89,7 +89,7 @@ export default function JoinCard({
           className="list-disc pl-4 text-sm sm:text-base text-[var(--theme-text-primary)]/80 space-y-1 mb-4"
         >
           <motion.li variants={listItemVariants}>
-            Free Claude Pro + $50 in API credits
+            Six Free Months of Claude Pro + $25 in API credits
           </motion.li>
           <motion.li variants={listItemVariants}>
             Hands-on workshops and resources
