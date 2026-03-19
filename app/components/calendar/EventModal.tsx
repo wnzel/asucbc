@@ -49,35 +49,38 @@ export default function EventModal({ event, isOpen, onClose, onAddToCalendar }: 
     };
   }, [onClose, isOpen]);
 
-  // Inject external link icons into description hyperlinks
   useEffect(() => {
-    if (!descriptionRef.current) return;
+    if (!descriptionRef.current || !event?.description) return;
     const links = descriptionRef.current.querySelectorAll('a');
-    links.forEach((link) => {
-      // Skip if icon already added
-      if (link.querySelector('.description-link-icon')) return;
-
-      // Ensure description links open in a new tab safely.
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('width', '14');
-      svg.setAttribute('height', '14');
-      svg.setAttribute('viewBox', '0 0 24 24');
-      svg.setAttribute('fill', 'none');
-      svg.setAttribute('stroke', 'currentColor');
-      svg.setAttribute('stroke-width', '2');
-      svg.setAttribute('stroke-linecap', 'round');
-      svg.setAttribute('stroke-linejoin', 'round');
-      svg.setAttribute('class', 'description-link-icon');
-      svg.style.display = 'inline';
-      svg.style.verticalAlign = 'middle';
-      svg.style.marginLeft = '4px';
-      svg.innerHTML = '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>';
-      link.appendChild(svg);
+    links.forEach(link => {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      if (!link.querySelector('.ext-icon')) {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'ext-icon');
+        svg.setAttribute('width', '14');
+        svg.setAttribute('height', '14');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.style.display = 'inline';
+        svg.style.verticalAlign = 'middle';
+        svg.style.marginLeft = '8px';
+        svg.style.flexShrink = '0';
+        const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p1.setAttribute('d', 'M15 3h6v6');
+        const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p2.setAttribute('d', 'M10 14 21 3');
+        const p3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p3.setAttribute('d', 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6');
+        svg.append(p1, p2, p3);
+        link.appendChild(svg);
+      }
     });
-  }, [event?.description, isOpen]);
+  }, [event?.description]);
 
   if (!isOpen || !event) return null;
 
@@ -187,7 +190,7 @@ export default function EventModal({ event, isOpen, onClose, onAddToCalendar }: 
               <div className="p-4 bg-[var(--theme-button-alternate-bg)] rounded-xl border border-[var(--theme-card-border)]">
                 <div
                   ref={descriptionRef}
-                  className="event-modal-description text-[var(--theme-text-primary)] text-sm leading-relaxed prose prose-sm max-w-none"
+                  className="text-[var(--theme-text-primary)] text-sm leading-relaxed prose prose-sm max-w-none event-description"
                   dangerouslySetInnerHTML={{ __html: sanitizeHTML(event.description) }}
                 />
               </div>

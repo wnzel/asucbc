@@ -73,12 +73,7 @@ interface TrackCardProps {
   delay?: number;
 }
 
-function TrackCard({
-  icon,
-  title,
-  description,
-  delay = 0,
-}: TrackCardProps) {
+function TrackCard({ icon, title, description, delay = 0 }: TrackCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -126,13 +121,14 @@ export default function Hackathon2() {
               MARCH 20-22, 2026
             </div>
 
-
             <Heading
               level="h1"
               animate={false}
               className="text-6xl sm:text-7xl md:text-8xl font-black mb-6 leading-none"
             >
-              <span className="text-[var(--theme-text-primary)]">Claude Builder Club</span>
+              <span className="text-[var(--theme-text-primary)]">
+                Claude Builder Club
+              </span>
               <br />
               <span className="text-[var(--theme-text-accent)]">Hackathon</span>
             </Heading>
@@ -173,7 +169,11 @@ export default function Hackathon2() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card gradient animated={false} className="relative overflow-hidden border-2 border-[var(--theme-text-accent)]">
+            <Card
+              gradient
+              animated={false}
+              className="relative overflow-hidden border-2 border-[var(--theme-text-accent)]"
+            >
               <div className="text-center mb-6">
                 <div className="inline-flex items-center gap-2 mb-3">
                   <span className="text-3xl">📍</span>
@@ -225,7 +225,11 @@ export default function Hackathon2() {
                 {/* Important Note */}
                 <div className="p-4 bg-[var(--theme-text-accent)]/10 rounded-lg border-l-4 border-[var(--theme-text-accent)]">
                   <p className="text-sm font-semibold text-[var(--theme-text-primary)]">
-                    <span className="text-[var(--theme-text-accent)]">⚠️ Important:</span> If you registered on Sun Devil Connect, you must also register here to confirm your attendance!
+                    <span className="text-[var(--theme-text-accent)]">
+                      ⚠️ Important:
+                    </span>{" "}
+                    If you registered on Sun Devil Connect, you must also
+                    register here to confirm your attendance.
                   </p>
                 </div>
 
@@ -262,33 +266,33 @@ export default function Hackathon2() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
             <TrackCard
-              icon="🤖"
-              title="AI-Powered Tools"
-              description="Build innovative applications leveraging Claude AI to solve real-world problems"
+              icon="🩺"
+              title="Biology & Physical Health"
+              description="Make healthcare more accessible or help people manage physical health"
               delay={0}
             />
             <TrackCard
-              icon="🎓"
-              title="Education & Learning"
-              description="Create tools that make learning more engaging, accessible, and personalized"
+              icon="🤖"
+              title="AI Tooling"
+              description="Build innovative developer tools, workflows, and infrastructure that make AI more useful, reliable, or accessible"
               delay={0.1}
             />
             <TrackCard
-              icon="🌍"
-              title="Social Impact"
-              description="Develop solutions that address community challenges and create positive change"
+              icon="📚"
+              title="Economic Empowerment & Education"
+              description="Remove barriers to learning and opportunity"
               delay={0.2}
             />
             <TrackCard
-              icon="💻"
-              title="Developer Experience"
-              description="Enhance productivity with tools that make developers' lives easier"
+              icon="🎨"
+              title="Creative Flourishing"
+              description="Amplify human creativity and help people find meaning"
               delay={0.3}
             />
             <TrackCard
-              icon="🎨"
-              title="Creative Tech"
-              description="Push boundaries with creative applications of AI in art, music, and design"
+              icon="🗳️"
+              title="Governance & Collaboration"
+              description="Help people participate in democracy or work together better"
               delay={0.4}
             />
             <TrackCard
@@ -382,18 +386,13 @@ export default function Hackathon2() {
               </h3>
               <ScheduleItem
                 time="9:00 AM"
-                title="Final Sprint"
+                title="Final Sprint + Check-In"
                 description="Polish your projects"
               />
               <ScheduleItem
                 time="2:00 PM"
                 title="Submissions Due"
                 description="Submit your projects for judging"
-              />
-              <ScheduleItem
-                time="3:00 PM"
-                title="Project Demos"
-                description="Present your work to judges"
               />
               <ScheduleItem
                 time="5:00 PM"
@@ -417,10 +416,13 @@ export default function Hackathon2() {
             <Card gradient animated={false} className="text-center p-8 sm:p-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[var(--theme-text-primary)]">
                 Interested in{" "}
-                <span className="text-[var(--theme-text-accent)]">Sponsoring?</span>
+                <span className="text-[var(--theme-text-accent)]">
+                  Sponsoring?
+                </span>
               </h2>
               <Text size="lg" className="mb-6 max-w-2xl mx-auto">
-                Support innovation and connect with talented developers building the future
+                Support innovation and connect with talented developers building
+                the future
               </Text>
               <Link href="/industry">
                 <Button size="lg" className="text-lg px-10 py-6">
@@ -446,8 +448,8 @@ export default function Hackathon2() {
               <span className="text-[var(--theme-text-accent)]">Create?</span>
             </Heading>
             <Text size="lg" className="mb-8 max-w-2xl mx-auto">
-              Join us for an unforgettable weekend of innovation, collaboration, and creativity.
-              All skill levels welcome!
+              Join us for an unforgettable weekend of innovation, collaboration,
+              and creativity. All skill levels welcome!
             </Text>
             <Link href="/hackathon2/signup">
               <Button size="lg" className="text-lg px-10 py-6">

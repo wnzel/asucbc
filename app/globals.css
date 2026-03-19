@@ -290,20 +290,6 @@ body {
   transition: none !important;
 }
 
-/* Event modal description links: use CSS hover states instead of JS listeners. */
-.event-modal-description.prose a {
-  color: var(--theme-text-primary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: white;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
-}
-
-.event-modal-description.prose a:hover {
-  color: var(--theme-button-hover-bg);
-  text-decoration-color: var(--theme-button-hover-bg);
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -356,4 +342,17 @@ body {
 
 [cmdk-group-heading] {
   user-select: none;
+}
+
+/* Event modal description link styles — both classes on same element, higher specificity than .prose a */
+.event-description.prose a {
+  color: var(--theme-text-primary) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--theme-text-primary) !important;
+}
+
+.event-description.prose a:hover {
+  color: var(--theme-button-hover-bg) !important;
+  text-decoration-color: var(--theme-button-hover-bg) !important;
 }
