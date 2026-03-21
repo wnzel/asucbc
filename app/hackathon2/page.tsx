@@ -350,7 +350,7 @@ export default function Hackathon2() {
             {/* Day 2 */}
             <div>
               <h3 className="text-3xl font-bold mb-8 text-[var(--theme-text-accent)]">
-               Day 2 - Saturday
+                Day 2 - Saturday
               </h3>
               <ScheduleItem
                 time="9:00 AM"
